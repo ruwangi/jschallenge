@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+<ng-map center="[{{centralLat}}, {{centralLon}}]" zoom="12">
+	<marker id="id_{{x.id}}" ng-repeat="x in result"  position="{{x.latitude}}, {{x.longitude}}" 
+	on-click='showMapDetail(event,x)'></marke>
+
+	<info-window id="fullMapInfo" >
+        <div ng-non-bindable> 
+        	{{location.parking_name}}
+        </div>
+      </info-window>
+</ng-map> 
+
+</div>
+</div>

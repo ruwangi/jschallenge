@@ -21,18 +21,33 @@ app.controller('MapCtrl', function($scope, $rootScope, $http, NgMap) {
   $scope.centralLon = "103.851959";
 
   $http.get(url).success(function(result) {
+    console.log('Result from the API call:', result);
     $rootScope.result = result;
   }).error(function(err) {
+    // Hum, this is odd ... contact us...
     console.error(err);
   });
 
   NgMap.getMap().then(function(map) {
-    $scope.map = map;
+      $scope.map = map;
   });
 
   $scope.showMapDetail = function(event, d) {
     $scope.location = d;
     console.log(d.id);
-    $scope.map.showInfoWindow('fullMapInfo', 'id_'+ d.id);
+    $scope.map.showInfoWindow('fullMapInfo', 'id_'+d.id);
   }
+
+
+});
+
+app.directive("fullInfo", function($compile) {
+    return{
+        link: function(scope, element){
+            var template = "<p>{{location.parking_name}}</P>";
+            var linkFn = $compile(template);
+            var content = linkFn(scope);
+            element.append(content);
+        }
+    }
 });

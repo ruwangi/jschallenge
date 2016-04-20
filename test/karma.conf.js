@@ -22,6 +22,12 @@ module.exports = function(config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/angular-route/angular-route.js',
+      'bower_components/ng-simplePagination/simplePagination.js',
+      'bower_components/angular-utils-pagination/dirPagination.js',
+      'bower_components/ng-dialog/js/ngDialog.js',
+      'bower_components/ngmap/build/scripts/ng-map.js',
+      'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
